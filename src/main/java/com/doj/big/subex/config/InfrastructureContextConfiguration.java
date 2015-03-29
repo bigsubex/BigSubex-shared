@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @ComponentScan(basePackages = { "com.doj.big.subex.service",
         "com.doj.big.subex.repository", "com.doj.big.subex.domain.support" })
-public class BigSubexApplicationContextConfiguration {
+public class InfrastructureContextConfiguration {
 	
 	//To do
 }
