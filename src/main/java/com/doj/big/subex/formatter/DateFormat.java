@@ -6,8 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Marten Deinum
- * @author Koen Serneels
+ * @author Dinesh Rajput
  *
  */
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER })
