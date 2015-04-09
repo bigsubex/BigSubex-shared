@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.doj.big.subex.domain.Account;
@@ -20,6 +21,7 @@ import com.doj.big.subex.domain.Account;
 public class JpaAccountRepository implements AccountRepository {
 
     @PersistenceContext
+    @Autowired
     private EntityManager entityManager;
 
     @Override
