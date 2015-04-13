@@ -14,8 +14,8 @@ public class UserBuilder  extends EntityBuilder<User>{
     }
 
     public UserBuilder credentials(String username, String password) {
-        this.product.setUsername(username);
-        this.product.setPassword(password);
+       // this.product.setUsername(username);
+       // this.product.setPassword(password);
         return this;
     }
 
