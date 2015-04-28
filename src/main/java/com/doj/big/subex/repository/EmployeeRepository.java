@@ -8,9 +8,9 @@ import com.doj.big.subex.domain.Account;
  * @author Dinesh Rajput
  *
  */
-public interface AccountRepository {
+public interface EmployeeRepository {
 
-    Account findByUsername(String username);
+    Account findByEmail(String email);
 
     Account findById(long id);
 

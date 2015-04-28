@@ -12,6 +12,8 @@ import com.doj.big.subex.domain.User;
  */
 public class UserValidator implements Validator {
 	
+	private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
     @Override
     public boolean supports(Class<?> clazz) {
         return (User.class).isAssignableFrom(clazz);
@@ -26,5 +28,14 @@ public class UserValidator implements Validator {
         ValidationUtils.rejectIfEmpty(errors, "surname", "required", new Object[] { "Enter Surname" });
         ValidationUtils.rejectIfEmpty(errors, "employee", "required", new Object[] { "Enter Employee" });
         ValidationUtils.rejectIfEmpty(errors, "pokemon", "required", new Object[] { "Select one" });
+        ValidationUtils.rejectIfEmpty(errors, "email", "required", new Object[] { "Select one" });
+        
+        if (!errors.hasFieldErrors("email")) {
+            User user = (User) target;
+            String email = user.getEmail();
+            if (!email.matches(EMAIL_PATTERN)) {
+                errors.rejectValue("email", "invalid");
+            }
+        }
     }
 }

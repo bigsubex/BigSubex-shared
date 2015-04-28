@@ -12,7 +12,7 @@ import com.doj.big.subex.service.exception.AuthenticationException;
  *
  */
 @Service("accountService")
-public interface AccountService {
+public interface LoginService {
 
     Account save(Account account);
 
@@ -24,7 +24,7 @@ public interface AccountService {
      * @return the account
      * @throws AuthenticationException if account not found or incorrect password
      */
-    Account login(String username, String password) throws AuthenticationException;
+    Account login(String email, String password) throws AuthenticationException;
 
     Account getAccount(String username);
 }

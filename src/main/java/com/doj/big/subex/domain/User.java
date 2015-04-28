@@ -21,6 +21,7 @@ public class User implements Serializable{
     private String surname;
     private String employee;
     private String pokemon;
+    private String email;
     
 	public String getCompany() {
 		return company;
@@ -63,6 +64,12 @@ public class User implements Serializable{
 	}
 	public void setPokemon(String pokemon) {
 		this.pokemon = pokemon;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
     
 }

@@ -6,33 +6,32 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.doj.big.subex.domain.Account;
-import com.doj.big.subex.repository.AccountRepository;
+import com.doj.big.subex.repository.EmployeeRepository;
 import com.doj.big.subex.service.exception.AuthenticationException;
 
 /**
- * @see AccountService
+ * @see LoginService
  * @author Dinesh Rajput
  *
  */
 @Service("accountService")
 @Transactional(readOnly = true)
-public class AccountServiceImpl implements AccountService {
+public class LoginServiceImpl implements LoginService {
 
 	@Autowired
-	private AccountRepository accountRepository;
+	private EmployeeRepository employeeRepository;
 
 	@Override
 	@Transactional(readOnly = false)
 	public Account save(Account account) {
-		return this.accountRepository.save(account);
+		return this.employeeRepository.save(account);
 	}
 
 	@Override
-	public Account login(String username, String password) throws AuthenticationException {
-		Account account = this.accountRepository.findByUsername(username);
+	public Account login(String email, String password) throws AuthenticationException {
+		Account account = this.employeeRepository.findByEmail(email);
 		if (account != null) {
-			String pwd = DigestUtils.sha256Hex(password + "{" + username + "}");
-			if (!account.getPassword().equalsIgnoreCase(pwd)) {
+			if (!account.getPassword().equalsIgnoreCase(password)) {
 				throw new AuthenticationException("Wrong username/password combination.", "invalid.password");
 			}
 		} else {
@@ -43,7 +42,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Account getAccount(String username) {
-		return this.accountRepository.findByUsername(username);
+	public Account getAccount(String email) {
+		return this.employeeRepository.findByEmail(email);
 	}
 }
