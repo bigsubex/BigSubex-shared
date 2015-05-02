@@ -39,7 +39,7 @@ public class TestDataContextConfiguration {
 	}
 
 	@Bean(initMethod = "start", destroyMethod = "shutdown")
-	@DependsOn("dataSource")
+	//@DependsOn("dataSource")
 	public Server dataSourceTcpConnector() {
 		try {
 			return Server.createTcpServer();

@@ -12,7 +12,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author Dinesh Rajput
  * 
  */
-@Embeddable
+//@Embeddable
 public class Address implements Serializable {
 
     @NotEmpty

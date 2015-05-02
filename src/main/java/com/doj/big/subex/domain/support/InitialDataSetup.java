@@ -51,7 +51,7 @@ public class InitialDataSetup {
                 }
 
                 // Create accounts
-                {
+               /* {
                     InitialDataSetup.this.johnDoe = new AccountBuilder() {
                         {
                             address("Brussels", "1000", "Nieuwstraat", "1", "A", "BE");
@@ -79,7 +79,7 @@ public class InitialDataSetup {
                         }
                     }.build();
                 }
-
+*/
                 // Create different books
                 /*List<Order> orders = new ArrayList<Order>();
                 {
@@ -194,8 +194,9 @@ public class InitialDataSetup {
             }
 
             private boolean dataIsAlreadyPresent() {
-                return InitialDataSetup.this.entityManager.createQuery("select count(a.id) from Account a", Long.class)
-                        .getSingleResult().longValue() > 0;
+              /*  return InitialDataSetup.this.entityManager.createQuery("select count(a.id) from Account a", Long.class)
+                        .getSingleResult().longValue() > 0;*/
+            	 return false;          
             }
         });
         EntityBuilderManager.clearEntityManager();

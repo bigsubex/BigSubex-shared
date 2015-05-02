@@ -21,7 +21,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author Dinesh.Rajput
  *
  */
-@Entity
+//@Entity
 public class Account implements Serializable{
 
     @Id
