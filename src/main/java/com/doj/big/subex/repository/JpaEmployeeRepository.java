@@ -1,6 +1,10 @@
 package com.doj.big.subex.repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.doj.big.subex.domain.Account;
 
@@ -11,10 +15,11 @@ import com.doj.big.subex.domain.Account;
  *
  */
 @Repository("accountRepository")
+@Transactional
 public class JpaEmployeeRepository implements EmployeeRepository {
 
-//    @PersistenceContext
-//    private EntityManager entityManager;
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public Account findByEmail(String email) {
@@ -40,17 +45,13 @@ public class JpaEmployeeRepository implements EmployeeRepository {
     }
 
     @Override
-    public Account save(Account account1) {
-        /*if (account.getId() != null) {
-            return this.entityManager.merge(account);
+    public Account save(Account account) {
+        if (account.getId() != null) {
+            return em.merge(account);
         } else {
-            this.entityManager.persist(account);
+        	em.persist(account);
             return account;
-        }*/
-    	Account account = new Account();
-    	account.setPassword("rajput");
-    	account.setUsername("dinesh");
-    	return account;
+        }
     }
 
 }

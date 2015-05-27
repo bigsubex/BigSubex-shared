@@ -46,13 +46,13 @@ public class InfrastructureContextConfiguration {
     
     @Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-		final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-		em.setDataSource(dataSource());
-		em.setPackagesToScan("com.doj.big.subex.domain");
+		final LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
+		emfb.setDataSource(dataSource());
+		emfb.setPackagesToScan("com.doj.big.subex.domain");
 		final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-		em.setJpaVendorAdapter(vendorAdapter);
-		em.setJpaProperties(additionalProperties());
-		return em;
+		emfb.setJpaVendorAdapter(vendorAdapter);
+		emfb.setJpaProperties(additionalProperties());
+		return emfb;
 	}
     
     @Bean
