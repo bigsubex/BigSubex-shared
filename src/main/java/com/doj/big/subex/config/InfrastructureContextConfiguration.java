@@ -38,8 +38,8 @@ public class InfrastructureContextConfiguration {
 	@Autowired
     DataSource dataSource;
 
-    @Autowired
-    EntityManagerFactory entityManagerFactory;
+    //@Autowired
+   // EntityManagerFactory entityManagerFactory;
     
     @Resource
 	Environment env;
@@ -63,7 +63,7 @@ public class InfrastructureContextConfiguration {
     @Bean
     public PlatformTransactionManager transactionManager() {
         JpaTransactionManager txManager = new JpaTransactionManager();
-        txManager.setEntityManagerFactory(this.entityManagerFactory);
+       // txManager.setEntityManagerFactory(this.entityManagerFactory);
         txManager.setDataSource(this.dataSource);
         return txManager;
     }
